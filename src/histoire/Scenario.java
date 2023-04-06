@@ -5,6 +5,7 @@ import personnages.Druide;
 import personnages.Gaulois;
 import villagegaulois.Etal;
 import villagegaulois.Village;
+import villagegaulois.VillageSansChefException;
 
 public class Scenario {
 
@@ -24,7 +25,12 @@ public class Scenario {
 		village.ajouterHabitant(obelix);
 		village.ajouterHabitant(druide);
 		village.ajouterHabitant(abraracourcix);
-		village.afficherVillageois();
+		try {
+			village.afficherVillageois();
+		} catch(VillageSansChefException e) {
+			System.out.println("erreur");
+		}
+	
 
 		System.out.println(village.installerVendeur(bonemine, "fleurs", 20));
 		System.out
